@@ -1,0 +1,5 @@
+# Resharper Nonsense #
+######################
+
+_ReSharper.*
+bin/
