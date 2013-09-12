@@ -6,7 +6,7 @@ namespace Resources.Web.Controllers
     {
         public ViewResult SignUp()
         {
-            return View();
+            return View("Index");
         }
     }
 }
