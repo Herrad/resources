@@ -18,7 +18,13 @@ namespace Resources.Web
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            RegisterRoutes(RouteTable.Routes);
+        }
+
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "SignUp", action = "SignUp", id = UrlParameter.Optional });
         }
     }
 }
