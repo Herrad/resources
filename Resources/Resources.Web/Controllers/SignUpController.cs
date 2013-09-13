@@ -12,7 +12,13 @@ namespace Resources.Web.Controllers
         [HttpPost]
         public ActionResult SignUp(SignUpFormCollection signUpFormCollection)
         {
-            return RedirectToAction(null);
+            var redirectResult = Redirect("Success");
+            return redirectResult;
+        }
+
+        public ViewResult Success()
+        {
+            return View();
         }
     }
 }

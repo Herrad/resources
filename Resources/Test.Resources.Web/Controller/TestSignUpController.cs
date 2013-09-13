@@ -35,18 +35,27 @@ namespace Test.Resources.Web.Controller
             var actionResult = signUpController.SignUp(null);
 
             Assert.That(actionResult, Is.Not.Null);
-            Assert.That(actionResult, Is.TypeOf<RedirectToRouteResult>());
+            Assert.That(actionResult, Is.TypeOf<RedirectResult>());
         }
 
         [Test]
-        public void SignUp_post_returns_RedirectToRouteResult()
+        public void SignUp_post_redirects_to_Success_view()
         {
             var signUpController = new SignUpController();
 
-            var actionResult = signUpController.SignUp(null);
+            var actionResult = (RedirectResult) signUpController.SignUp(null);
 
-            Assert.That(actionResult, Is.Not.Null);
-            Assert.That(actionResult, Is.TypeOf<RedirectToRouteResult>());
+            Assert.That(actionResult.Url, Is.EqualTo("Success"));
+        }
+
+        [Test]
+        public void Success_action_returns_ViewResult()
+        {
+            var signUpController = new SignUpController();
+
+            var viewResult = signUpController.Success();
+
+            Assert.That(viewResult, Is.Not.Null);
         }
     }
 }
