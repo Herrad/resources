@@ -1,3 +1,4 @@
+using System.Web.Mvc;
 using NUnit.Framework;
 using Resources.Web.Controllers;
 
@@ -24,6 +25,28 @@ namespace Test.Resources.Web.Controller
             var viewResult = signUpController.SignUp();
 
             Assert.That(viewResult.ViewName, Is.EqualTo("Index"));
+        }
+
+        [Test]
+        public void SignUp_post_returns_RedirectToRouteResult()
+        {
+            var signUpController = new SignUpController();
+
+            var actionResult = signUpController.SignUp(null);
+
+            Assert.That(actionResult, Is.Not.Null);
+            Assert.That(actionResult, Is.TypeOf<RedirectToRouteResult>());
+        }
+
+        [Test]
+        public void SignUp_post_returns_RedirectToRouteResult()
+        {
+            var signUpController = new SignUpController();
+
+            var actionResult = signUpController.SignUp(null);
+
+            Assert.That(actionResult, Is.Not.Null);
+            Assert.That(actionResult, Is.TypeOf<RedirectToRouteResult>());
         }
     }
 }

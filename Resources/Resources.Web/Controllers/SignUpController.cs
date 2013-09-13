@@ -8,5 +8,11 @@ namespace Resources.Web.Controllers
         {
             return View("Index");
         }
+
+        [HttpPost]
+        public ActionResult SignUp(SignUpFormCollection signUpFormCollection)
+        {
+            return RedirectToAction(null);
+        }
     }
 }
